@@ -1,0 +1,14 @@
+{
+  "name": "auth-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "start": "nest start"
+  },
+  "dependencies": {
+    "@nestjs/typeorm": "^11.0.1",
+    "pg": "^8.20.0",
+    "typeorm": "^0.3.29"
+  }
+}
