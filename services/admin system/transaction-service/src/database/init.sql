@@ -1,7 +1,33 @@
-CREATE DATABASE transaction_db;
+-- CREATE DATABASE transaction_db; (Already created or run this separately!)
 
+CREATE TYPE transaction_status AS ENUM (
+  'pending',
+  'in_progress',
+  'completed',
+  'cancelled',
+  'na'
+);
 
-CREATE TABLE transactions (
+CREATE TYPE documentary_status AS ENUM (
+  'complete',
+  'incomplete',
+  'for_compliance'
+);
+
+CREATE TYPE client_type AS ENUM (
+  'employee',
+  'student',
+  'dependent'
+);
+
+CREATE TYPE case_type AS ENUM (
+  'new_patient',
+  'follow_up',
+  'emergency',
+  'non_emergency'
+);
+
+CREATE TABLE IF NOT EXISTS transactions (
   transaction_id    UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   service_id        UUID NOT NULL,
   period_id         UUID NOT NULL,

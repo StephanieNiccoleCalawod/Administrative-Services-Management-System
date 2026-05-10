@@ -7,9 +7,9 @@ import {
 } from 'typeorm';
 
 export enum ClientType {
-  WALK_IN = 'walk_in',
-  REFERRED = 'referred',
-  ONLINE = 'online',
+  EMPLOYEE = 'employee',
+  STUDENT = 'student',
+  DEPENDENT = 'dependent',
 }
 
 export enum TransactionStatus {
@@ -17,6 +17,7 @@ export enum TransactionStatus {
   IN_PROGRESS = 'in_progress',
   COMPLETED = 'completed',
   CANCELLED = 'cancelled',
+  NA = 'na',
 }
 
 @Entity('transactions')

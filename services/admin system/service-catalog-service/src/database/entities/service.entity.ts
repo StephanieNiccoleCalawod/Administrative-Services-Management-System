@@ -7,21 +7,25 @@ import {
 } from 'typeorm';
 
 export enum ServiceClassification {
-  INTERNAL = 'internal',
-  EXTERNAL = 'external',
+  MEDICAL = 'medical',
+  DENTAL = 'dental',
+  ADMINISTRATIVE = 'administrative',
 }
 
 export enum ServiceType {
   CONSULTATION = 'consultation',
-  PROCEDURE = 'procedure',
-  LABORATORY = 'laboratory',
-  RADIOLOGY = 'radiology',
+  CLEARANCE = 'clearance',
+  CERTIFICATE = 'certificate',
+  BORROWING = 'borrowing',
+  RESERVATION = 'reservation',
+  PERMIT = 'permit',
+  CIRCULATION = 'circulation',
 }
 
 export enum ServiceCategory {
-  MEDICAL = 'medical',
-  ADMINISTRATIVE = 'administrative',
-  ANCILLARY = 'ancillary',
+  EMERGENCY = 'emergency',
+  NON_EMERGENCY = 'non_emergency',
+  STANDARD = 'standard',
 }
 
 @Entity('services')

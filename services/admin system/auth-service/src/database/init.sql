@@ -1,6 +1,18 @@
-CREATE DATABASE office_user_db; 
+-- CREATE DATABASE office_user_db; (Already created or run this separately!)
 
-CREATE TABLE office_users (
+CREATE TYPE user_role AS ENUM (
+  'admin_officer',
+  'clinic_nurse',
+  'clinic_dentist'
+);
+
+CREATE TYPE user_status AS ENUM (
+  'active',
+  'inactive',
+  'suspended'
+);
+
+CREATE TABLE IF NOT EXISTS office_users (
   office_user_id  UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name            VARCHAR NOT NULL,
   email           VARCHAR NOT NULL UNIQUE,

@@ -4,7 +4,11 @@
   "description": "",
   "main": "main.ts",
   "scripts": {
-    "start": "nest start"
+    "build": "nest build",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:prod": "node dist/main",
+    "seed": "ts-node src/database/seed.ts"
   },
   "dependencies": {},
   "devDependencies": {}

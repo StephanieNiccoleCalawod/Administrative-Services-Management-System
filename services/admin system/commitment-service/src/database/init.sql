@@ -1,7 +1,17 @@
-CREATE DATABASE commitment_db;
+-- CREATE DATABASE commitment_db; (Already created!)
 
+-- CREATE TYPE commitment_status AS ENUM (
+--   'draft',
+--   'submitted',
+--   'locked'
+-- );
+CREATE TYPE target_unit AS ENUM (
+  'percentage',
+  'count',
+  'minutes'
+);
 
-CREATE TABLE commitments (
+CREATE TABLE IF NOT EXISTS commitments (
   commitment_id       UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   service_id          UUID NOT NULL,
   period_id           UUID NOT NULL,

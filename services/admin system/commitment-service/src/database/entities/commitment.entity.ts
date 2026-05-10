@@ -10,14 +10,12 @@ export enum TargetUnit {
   COUNT = 'count',
   PERCENTAGE = 'percentage',
   MINUTES = 'minutes',
-  HOURS = 'hours',
 }
 
 export enum CommitmentStatus {
   DRAFT = 'draft',
-  ACTIVE = 'active',
-  COMPLETED = 'completed',
-  CANCELLED = 'cancelled',
+  SUBMITTED = 'submitted',
+  LOCKED = 'locked',
 }
 
 @Entity('commitments')

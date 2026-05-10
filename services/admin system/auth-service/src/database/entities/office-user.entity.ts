@@ -7,9 +7,9 @@ import {
 } from 'typeorm';
 
 export enum UserRole {
-  ADMIN = 'admin',
-  STAFF = 'staff',
-  VIEWER = 'viewer',
+  ADMIN_OFFICER = 'admin_officer',
+  CLINIC_NURSE = 'clinic_nurse',
+  CLINIC_DENTIST = 'clinic_dentist',
 }
 
 export enum UserStatus {

@@ -1,6 +1,20 @@
-CREATE DATABASE period_db;
+-- CREATE DATABASE period_db; (Already created or run this separately!)
 
-CREATE TABLE periods (
+CREATE TYPE period_type AS ENUM (
+  'daily',
+  'weekly',
+  'monthly',
+  'quarterly',
+  'annual'
+);
+
+CREATE TYPE period_status AS ENUM (
+  'active',
+  'inactive',
+  'closed'
+);
+
+CREATE TABLE IF NOT EXISTS periods (
   period_id   UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name        VARCHAR NOT NULL,
   period_type period_type NOT NULL,

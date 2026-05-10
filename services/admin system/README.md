@@ -37,9 +37,28 @@ DB_PASS=your_postgres_password
 
 ### 3. Initialize the Databases
 NestJS is configured to connect to specific databases, but you must physically create them in PostgreSQL first.
-1. Open **pgAdmin 4**.
-2. Connect to your local server, right-click, and open the **Query Tool**.
-3. Open the `src/database/init.sql` file from **each** microservice, paste the SQL code into pgAdmin, and hit the Play button to create the databases, tables, and ENUM types.
+1. Open **SQLTools** (VS Code extension) or **pgAdmin 4**.
+2. Create the 5 individual databases (e.g., `office_user_db`, `commitment_db`, etc.).
+3. Connect to a specific database, open its `src/database/init.sql` file, and hit **Run Selected Query** to create its tables and ENUM types.
+
+### 4. Seed the Databases with Dummy Data
+Once the tables exist, you can automatically populate them with sample data by running the seed scripts in your root terminal.
+
+**Crucial:** You must seed the standalone databases first, or the relational databases will crash!
+
+**Step A (Standalone):**
+```bash
+npm run seed --workspace=auth-service
+npm run seed --workspace=period-service
+npm run seed --workspace=service-catalog-service
+```
+
+**Step B (Relational):**
+```bash
+npm run seed --workspace=commitment-service
+npm run seed --workspace=transaction-service
+```
+*(If successful, each command will print a `✅ seeded!` message).*
 
 ---
 
