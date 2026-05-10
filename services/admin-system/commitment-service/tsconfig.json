@@ -11,11 +11,10 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "baseUrl": "./",
-    "ignoreDeprecations": "6.0",
     "skipLibCheck": true,
     "strictNullChecks": false,
     "noImplicitAny": false,
-    "types": [ "node" ]
+    "types": []
   },
   "include": [ "src/**/*.ts" ]
 }

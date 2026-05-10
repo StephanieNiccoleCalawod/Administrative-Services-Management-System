@@ -17,6 +17,7 @@ import { Period } from './entities/period.entity';
                 database: 'period_db',
                 entities: [Period],
                 synchronize: false,
+                logging: true, 
             }),
         }),
         TypeOrmModule.forFeature([Period]),

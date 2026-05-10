@@ -11,7 +11,7 @@
     "seed": "ts-node src/database/seed.ts"
   },
   "devDependencies": {
-    "@types/node": "^20.19.40",
+    "@types/node": "^22.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3"
   },

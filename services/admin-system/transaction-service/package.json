@@ -11,6 +11,10 @@
     "seed": "ts-node src/database/seed.ts"
   },
   "dependencies": {
+    "@nestjs/common": "^11.1.19",
+    "@nestjs/config": "^4.0.4",
+    "@nestjs/core": "^11.1.19",
+    "@nestjs/platform-express": "^11.1.19",
     "@nestjs/swagger": "^11.4.2",
     "@nestjs/typeorm": "^11.0.1",
     "pg": "^8.20.0",
@@ -18,6 +22,8 @@
     "typeorm": "^0.3.29"
   },
   "devDependencies": {
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "@types/node": "^22.0.0",
+    "typescript": "^6.0.3"
   }
 }

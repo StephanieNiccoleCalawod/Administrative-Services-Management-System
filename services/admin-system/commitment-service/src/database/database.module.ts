@@ -17,6 +17,7 @@ import { Commitment } from './entities/commitment.entity';
                 database: 'commitment_db',
                 entities: [Commitment],
                 synchronize: false,
+                logging: true, 
             }),
         }),
         TypeOrmModule.forFeature([Commitment]),

@@ -17,6 +17,7 @@ import { Service } from './entities/service.entity';
                 database: 'service_catalog_db',
                 entities: [Service],
                 synchronize: false,
+                logging: true, 
             }),
         }),
         TypeOrmModule.forFeature([Service]),

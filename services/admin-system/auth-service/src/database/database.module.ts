@@ -17,6 +17,7 @@ import { OfficeUser } from './entities/office-user.entity';
                 database: 'office_user_db',
                 entities: [OfficeUser],
                 synchronize: false,
+                logging: true, 
             }),
         }),
         TypeOrmModule.forFeature([OfficeUser]),

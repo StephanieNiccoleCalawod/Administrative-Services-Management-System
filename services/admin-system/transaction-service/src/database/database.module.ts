@@ -17,6 +17,7 @@ import { Transaction } from './entities/transaction.entity';
                 database: 'transaction_db',
                 entities: [Transaction],
                 synchronize: false,
+                logging: true, 
             }),
         }),
         TypeOrmModule.forFeature([Transaction]),
