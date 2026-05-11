@@ -18,13 +18,22 @@ export enum UserStatus {
   SUSPENDED = 'suspended',
 }
 
+export enum UserScope {
+  MEDICAL = 'medical',
+  DENTAL = 'dental',
+  ADMINISTRATIVE = 'administrative',
+}
+
 @Entity('office_users')
 export class OfficeUser {
   @PrimaryGeneratedColumn('uuid')
   office_user_id: string;
 
   @Column()
-  name: string;
+  first_name: string;
+
+  @Column()
+  last_name: string;
 
   @Column({ unique: true })
   email: string;
@@ -34,6 +43,11 @@ export class OfficeUser {
 
   @Column({ type: 'enum', enum: UserStatus, default: UserStatus.ACTIVE })
   status: UserStatus;
+
+  // Defines which service classifications this user can access
+  // e.g. nurse → ['medical'], dentist → ['dental'], admin_officer → ['medical','dental','administrative']
+  @Column({ type: 'simple-array', nullable: true })
+  scopes: UserScope[];
 
   @CreateDateColumn({ type: 'timestamptz' })
   created_at: Date;

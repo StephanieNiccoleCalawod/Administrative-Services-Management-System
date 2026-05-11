@@ -39,6 +39,7 @@ export class Service {
   @Column({ type: 'text', nullable: true })
   description: string;
 
+  // SLA target in minutes
   @Column({ nullable: true })
   total_processing_time: number;
 
@@ -53,6 +54,12 @@ export class Service {
 
   @Column({ default: true })
   is_active: boolean;
+
+  // Defines service-specific fields required during transaction logging
+  // e.g. ["chief_complaint", "vital_signs"] for Medical Consultation
+  // e.g. ["venue", "equipment_needed"] for Facility Reservation
+  @Column({ type: 'jsonb', nullable: true })
+  conditional_fields: string[];
 
   @CreateDateColumn({ type: 'timestamptz' })
   created_at: Date;
