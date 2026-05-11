@@ -10,11 +10,10 @@
     "sourceMap": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "baseUrl": "./",
     "skipLibCheck": true,
     "strictNullChecks": false,
     "noImplicitAny": false,
     "types": []
   },
-  "include": [ "src/**/*.ts" ]
+  "include": ["src/**/*.ts"]
 }

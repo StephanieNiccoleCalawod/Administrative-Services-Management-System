@@ -4,7 +4,7 @@ import {
     ConflictException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, ILike } from 'typeorm';
 import { Service, ServiceClassification } from '../database/entities/service.entity';
 import { CreateServiceDto } from '../dto/create-service.dto';
 import { UpdateServiceDto } from '../dto/update-service.dto';
@@ -25,14 +25,17 @@ export class ServiceCatalogService {
         return this.serviceRepo.save(service);
     }
 
-    async findAll(classification?: ServiceClassification): Promise<Service[]> {
-        const where = classification ? { classification } : {};
+    async findAll(classification?: ServiceClassification, name?: string): Promise<Service[]> {
+        const where: any = {};
+        if (classification) where.classification = classification;
+        if (name) where.name = ILike(`%${name}%`);
         return this.serviceRepo.find({ where, order: { created_at: 'ASC' } });
     }
 
-    async findAllActive(classification?: ServiceClassification): Promise<Service[]> {
+    async findAllActive(classification?: ServiceClassification, name?: string): Promise<Service[]> {
         const where: any = { is_active: true };
         if (classification) where.classification = classification;
+        if (name) where.name = ILike(`%${name}%`);
         return this.serviceRepo.find({ where, order: { name: 'ASC' } });
     }
 
@@ -60,4 +63,3 @@ export class ServiceCatalogService {
         return { message: `Service "${service.name}" removed from catalogue.` };
     }
 }
-

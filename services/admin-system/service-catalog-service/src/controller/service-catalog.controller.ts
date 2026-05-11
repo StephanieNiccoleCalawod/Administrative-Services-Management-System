@@ -11,6 +11,7 @@ import {
     HttpCode,
     HttpStatus,
 } from '@nestjs/common';
+import { ApiQuery } from '@nestjs/swagger';
 import { ServiceCatalogService } from '../service/service-catalog.service';
 import { CreateServiceDto } from '../dto/create-service.dto';
 import { UpdateServiceDto, SetServiceNaDto } from '../dto/update-service.dto';
@@ -27,13 +28,23 @@ export class ServiceCatalogController {
     }
 
     @Get()
-    findAll(@Query('classification') classification?: ServiceClassification) {
-        return this.catalogService.findAll(classification);
+    @ApiQuery({ name: 'classification', required: false, enum: ServiceClassification })
+    @ApiQuery({ name: 'name', required: false, type: String })
+    findAll(
+        @Query('classification') classification?: ServiceClassification,
+        @Query('name') name?: string,
+    ) {
+        return this.catalogService.findAll(classification, name);
     }
 
     @Get('active')
-    findAllActive(@Query('classification') classification?: ServiceClassification) {
-        return this.catalogService.findAllActive(classification);
+    @ApiQuery({ name: 'classification', required: false, enum: ServiceClassification })
+    @ApiQuery({ name: 'name', required: false, type: String })
+    findAllActive(
+        @Query('classification') classification?: ServiceClassification,
+        @Query('name') name?: string,
+    ) {
+        return this.catalogService.findAllActive(classification, name);
     }
 
     @Get(':id')
