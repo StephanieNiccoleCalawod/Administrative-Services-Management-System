@@ -8,13 +8,12 @@
     "allowSyntheticDefaultImports": true,
     "target": "ES2021",
     "sourceMap": true,
-    "outDir": "../dist",
-    "rootDir": ".",
-    "baseUrl": "./",
+    "outDir": "./dist",
+    "rootDir": "./src",
     "skipLibCheck": true,
     "strictNullChecks": false,
     "noImplicitAny": false,
     "types": []
   },
-  "include": ["**/*.ts"]
+  "include": ["src/**/*.ts"]
 }

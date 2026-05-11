@@ -13,10 +13,10 @@ import { AuditLog } from './entities/audit-log.entity';
                 host: config.get<string>('DB_HOST'),
                 port: config.get<number>('DB_PORT'),
                 username: config.get<string>('DB_USER'),
-                password: config.get<string>('DB_PASS'),
+                password: String(config.get<string>('DB_PASS')),  // ← fix here
                 database: 'audit_db',
                 entities: [AuditLog],
-                synchronize: false,
+                synchronize: true,
                 logging: true,
             }),
         }),
@@ -24,4 +24,4 @@ import { AuditLog } from './entities/audit-log.entity';
     ],
     exports: [TypeOrmModule],
 })
-export class DatabaseModule {}
+export class DatabaseModule { }

@@ -9,9 +9,9 @@ import {
     HttpStatus,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { AuditService } from '../service/audit.service';
+import { AuditService } from '../service/audit-service';
 import { CreateAuditLogDto } from '../dto/create-audit-log.dto';
-import { QueryAuditLogDto } from '../dto/query-audit-log.dto';
+import { QueryAuditLogDto } from '../dto/query-audit-log-dto';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
 @ApiTags('Audit Log')

@@ -1,6 +1,6 @@
 import { IsEnum, IsOptional, IsString, IsDateString } from 'class-validator';
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { AuditAction, AuditEntity } from '../database/entities/audit-log-entity';
+import { AuditAction, AuditEntity } from '../database/entities/audit-log.entity';
 
 export class QueryAuditLogDto {
     @ApiPropertyOptional()
